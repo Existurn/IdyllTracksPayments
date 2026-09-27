@@ -552,7 +552,7 @@ export default function InvoiceBuilder({ onBack, onInvoiceCreated, isAdmin = fal
               invoiceNumber: finalInvoiceNo,
               amount: invoiceData.amount || 0,
               clientName: billedToName,
-              actionUrl: publicUrl,
+              actionUrl: 'https://www.idylltrackspayments.online/payments',
               userId: userId !== 'anonymous' ? userId : undefined
             }).catch(e => console.warn('[InvoiceBuilder] Error sending creator invoice confirmation:', e));
           }

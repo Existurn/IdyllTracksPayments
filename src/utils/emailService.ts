@@ -10,7 +10,8 @@ const RESEND_API_KEY =
 const DEFAULT_FROM = 
   (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_RESEND_FROM_EMAIL) || 
   'Idyll Tracks Payments <billing@idylltrackspayments.online>';
-const LOGO_URL = 'https://anikhkgojeurvgymgblq.supabase.co/storage/v1/object/public/payment_qrcodes/email_assets/itp_logo_black.png';
+const APP_BASE_URL = 'https://www.idylltrackspayments.online';
+const LOGO_URL = 'https://www.idylltrackspayments.online/itp-logo-black.png';
 
 export type EmailEventType = 
   | 'kyc_requested'
@@ -70,7 +71,7 @@ export function renderIdyllEmailHtml(payload: EmailDispatchPayload): string {
 
   const { eventType, data = {} } = payload;
   const userName = data.userName || data.clientName || 'there';
-  const actionUrl = data.actionUrl || (typeof window !== 'undefined' ? window.location.origin : 'https://idylltrackspayments.com');
+  const actionUrl = data.actionUrl || (typeof window !== 'undefined' ? window.location.origin : APP_BASE_URL);
   
   let paragraphs: string[] = [];
   let metadataBox = '';
@@ -199,6 +200,7 @@ export function renderIdyllEmailHtml(payload: EmailDispatchPayload): string {
         </div>
       `;
       buttonText = 'View Invoice Status';
+      buttonUrl = 'https://www.idylltrackspayments.online/payments';
       break;
 
     case 'payment_received':

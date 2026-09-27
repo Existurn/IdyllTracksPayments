@@ -42,10 +42,10 @@
 
 /* React Day Picker Overrides */
 .calendar {
-  --rdp-accent-color: var(--primary) !important;
-  --rdp-background-color: var(--bg-hover) !important;
-  --rdp-today-color: var(--primary) !important;
-  --rdp-selected-border: 2px solid var(--primary) !important;
+  --rdp-accent-color: var(--brand-dark, #111827) !important;
+  --rdp-background-color: var(--bg-hover, #f3f4f6) !important;
+  --rdp-today-color: var(--brand-dark, #111827) !important;
+  --rdp-selected-border: 2px solid var(--brand-dark, #111827) !important;
   --rdp-day_button-border-radius: 6px !important;
   margin: 0;
   font-family: inherit;
@@ -74,15 +74,19 @@
   color: var(--text-primary);
 }
 
-.calendar :global(.rdp-selected .rdp-day_button) {
-  background-color: var(--primary) !important;
-  color: var(--primary-foreground) !important;
-  font-weight: 600;
-  border-color: var(--primary) !important;
+.calendar :global(.rdp-selected .rdp-day_button),
+.calendar :global(.rdp-selected.rdp-day_button),
+.calendar :global(.rdp-selected) {
+  background-color: var(--brand-dark, #111827) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-color: var(--brand-dark, #111827) !important;
 }
 
-.calendar :global(.rdp-selected .rdp-day_button:hover) {
-  background-color: var(--primary) !important;
+.calendar :global(.rdp-selected .rdp-day_button:hover),
+.calendar :global(.rdp-selected.rdp-day_button:hover) {
+  background-color: var(--brand-dark-hover, #1f2937) !important;
+  color: #ffffff !important;
 }
 
 .calendar :global(.rdp-caption_label) {

@@ -13,7 +13,7 @@ import visaLogo from '../../assets/payment-methods/Visa Logo.png';
 import wireTransferLogo from '../../assets/payment-methods/Wire Transfer Logo.png';
 import fampayLogo from '../../assets/payment-methods/Fampay Logo.png';
 import wiseLogo from '../../assets/payment-methods/Wise Logo.png';
-import disappointedImg from '../../assets/disappointed.gif';
+import disappointedImg from '../../assets/disappointed.jpeg';
 
 interface InvoiceTableProps {
   onAddInvoice?: () => void;
