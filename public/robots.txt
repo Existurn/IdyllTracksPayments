@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+Allow: /landing
+Allow: /privacy
+
+# Disallow internal authenticated portals from cluttering search results
+Disallow: /dashboard
+Disallow: /payments
+Disallow: /payment-details
+Disallow: /users
+Disallow: /billing
+Disallow: /audit
+Disallow: /admin-panel
+Disallow: /settings
+Disallow: /kyc
+Disallow: /kyc-management
+Disallow: /notifications-management
+Disallow: /compose
+
+Sitemap: https://idylltrackpayments.online/sitemap.xml
