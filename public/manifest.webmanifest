@@ -1,0 +1,28 @@
+{
+  "name": "Idyll Tracks Payments",
+  "short_name": "Idyll Track",
+  "description": "Secure financial management, invoicing, and payment tracking platform by Idyll Productions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#fc5802",
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/idyll_track_logo.png",
+      "sizes": "2000x2000",
+      "type": "image/png"
+    }
+  ]
+}
