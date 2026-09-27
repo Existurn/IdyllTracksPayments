@@ -1,0 +1,329 @@
+@import url('https://api.fontshare.com/v2/css?f[]=nohemi@400,500,600,700&display=swap');
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'AnthropicSerif';
+  src: url('/fonts/AnthropicSerif-Display-Regular-Static.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anthropic Serif';
+  src: url('/fonts/AnthropicSerif-Display-Regular-Static.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ============================================================
+     MATERIAL DESIGN 3 (M3) COLOR ROLES - LIGHT SCHEME
+     Based on official Material Design 3 Color System specifications
+     ============================================================ */
+
+  /* 1. Surface Roles */
+  --md-sys-color-surface: #FAFAFA;
+  --md-sys-color-on-surface: #111827;
+  --md-sys-color-on-surface-variant: #6B7280;
+
+  /* Five Surface Container Roles (Elevation without shadows) */
+  --md-sys-color-surface-container-lowest: #FFFFFF;
+  --md-sys-color-surface-container-low: #F9FAFB;
+  --md-sys-color-surface-container: #FFFFFF;
+  --md-sys-color-surface-container-high: #F3F4F6;
+  --md-sys-color-surface-container-highest: #E5E7EB;
+
+  --md-sys-color-inverse-surface: #1F2937;
+  --md-sys-color-inverse-on-surface: #F9FAFB;
+  --md-sys-color-inverse-primary: #93C5FD;
+
+  /* 2. Outline Roles */
+  --md-sys-color-outline: #9CA3AF;
+  --md-sys-color-outline-variant: #E5E7EB;
+
+  /* 3. Primary Roles */
+  --md-sys-color-primary: #111827;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #1F2937;
+  --md-sys-color-on-primary-container: #FFFFFF;
+
+  /* 4. Secondary Roles */
+  --md-sys-color-secondary: #4B5563;
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: #F3F4F6;
+  --md-sys-color-on-secondary-container: #111827;
+
+  /* 5. Tertiary Roles */
+  --md-sys-color-tertiary: #0284C7;
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: #E0F2FE;
+  --md-sys-color-on-tertiary-container: #0369A1;
+
+  /* 6. Error Roles */
+  --md-sys-color-error: #DC2626;
+  --md-sys-color-on-error: #FFFFFF;
+  --md-sys-color-error-container: #FEE2E2;
+  --md-sys-color-on-error-container: #991B1B;
+
+  /* App Semantic Mapping (Light) */
+  --bg-main: var(--md-sys-color-surface);
+  --bg-surface: var(--md-sys-color-surface-container);
+  --bg-hover: var(--md-sys-color-surface-container-high);
+  
+  --text-primary: var(--md-sys-color-on-surface);
+  --text-secondary: var(--md-sys-color-on-surface-variant);
+  --text-tertiary: var(--md-sys-color-outline);
+  
+  --border-light: var(--md-sys-color-surface-container-high);
+  --border-default: var(--md-sys-color-outline-variant);
+  
+  --brand-dark: var(--md-sys-color-primary);
+  --brand-dark-hover: var(--md-sys-color-primary-container);
+
+  /* Invoicing & Picker Themes */
+  --theme-surface: var(--md-sys-color-surface-container);
+  --theme-surface-secondary: var(--md-sys-color-surface-container-low);
+  --theme-border: var(--md-sys-color-outline-variant);
+  --theme-text: var(--md-sys-color-on-surface);
+  --theme-text-muted: var(--md-sys-color-on-surface-variant);
+  --theme-hover: var(--md-sys-color-surface-container-high);
+  --theme-input-bg: var(--md-sys-color-surface-container-lowest);
+  --theme-create-accent: var(--md-sys-color-primary);
+  --theme-create-accent-hover: var(--md-sys-color-primary-container);
+  --theme-selected: rgba(17, 24, 39, 0.08);
+
+  /* Status Colors */
+  --status-active-bg: #F0FDF4;
+  --status-active-text: #166534;
+  --status-active-dot: #22C55E;
+  
+  --status-archived-bg: #F3F4F6;
+  --status-archived-text: #4B5563;
+  --status-archived-dot: #9CA3AF;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Layout */
+  --sidebar-width: 260px;
+  --header-height: 72px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* ============================================================
+   MATERIAL DESIGN 3 (M3) COLOR ROLES - DARK SCHEME
+   ============================================================ */
+:root[data-theme="dark"],
+html.dark,
+body.dark {
+  /* 1. Surface Roles */
+  --md-sys-color-surface: #0F1015;
+  --md-sys-color-on-surface: #F3F4F6;
+  --md-sys-color-on-surface-variant: #9CA3AF;
+
+  /* Five Surface Container Roles (Elevation without shadows) */
+  --md-sys-color-surface-container-lowest: #0A0B0E;
+  --md-sys-color-surface-container-low: #14151B;
+  --md-sys-color-surface-container: #1A1C24;
+  --md-sys-color-surface-container-high: #222430;
+  --md-sys-color-surface-container-highest: #2C2F3E;
+
+  --md-sys-color-inverse-surface: #F3F4F6;
+  --md-sys-color-inverse-on-surface: #111827;
+  --md-sys-color-inverse-primary: #2563EB;
+
+  /* 2. Outline Roles */
+  --md-sys-color-outline: #6B7280;
+  --md-sys-color-outline-variant: #2A2D3A;
+
+  /* 3. Primary Roles */
+  --md-sys-color-primary: #FFFFFF;
+  --md-sys-color-on-primary: #0F1015;
+  --md-sys-color-primary-container: #2A2E3D;
+  --md-sys-color-on-primary-container: #FFFFFF;
+
+  /* 4. Secondary Roles */
+  --md-sys-color-secondary: #A1A1AA;
+  --md-sys-color-on-secondary: #18181B;
+  --md-sys-color-secondary-container: #262936;
+  --md-sys-color-on-secondary-container: #E5E7EB;
+
+  /* 5. Tertiary Roles */
+  --md-sys-color-tertiary: #38BDF8;
+  --md-sys-color-on-tertiary: #082F49;
+  --md-sys-color-tertiary-container: #0C4A6E;
+  --md-sys-color-on-tertiary-container: #BAE6FD;
+
+  /* 6. Error Roles */
+  --md-sys-color-error: #F87171;
+  --md-sys-color-on-error: #450A0A;
+  --md-sys-color-error-container: #7F1D1D;
+  --md-sys-color-on-error-container: #FECACA;
+
+  /* App Semantic Mapping (Dark) */
+  --bg-main: var(--md-sys-color-surface);
+  --bg-surface: var(--md-sys-color-surface-container);
+  --bg-hover: var(--md-sys-color-surface-container-high);
+  
+  --text-primary: var(--md-sys-color-on-surface);
+  --text-secondary: var(--md-sys-color-on-surface-variant);
+  --text-tertiary: var(--md-sys-color-outline);
+  
+  --border-light: var(--md-sys-color-surface-container-high);
+  --border-default: var(--md-sys-color-outline-variant);
+  
+  --brand-dark: #FFFFFF;
+  --brand-dark-hover: #E5E7EB;
+
+  /* Invoicing & Picker Themes */
+  --theme-surface: var(--md-sys-color-surface-container);
+  --theme-surface-secondary: var(--md-sys-color-surface-container-low);
+  --theme-border: var(--md-sys-color-outline-variant);
+  --theme-text: var(--md-sys-color-on-surface);
+  --theme-text-muted: var(--md-sys-color-on-surface-variant);
+  --theme-hover: var(--md-sys-color-surface-container-high);
+  --theme-input-bg: var(--md-sys-color-surface-container-lowest);
+  --theme-create-accent: #FFFFFF;
+  --theme-create-accent-hover: #E5E7EB;
+  --theme-selected: rgba(255, 255, 255, 0.08);
+
+  /* Status Colors (Dark mode accessible) */
+  --status-active-bg: rgba(34, 197, 94, 0.15);
+  --status-active-text: #4ADE80;
+  --status-active-dot: #22C55E;
+  
+  --status-archived-bg: rgba(156, 163, 175, 0.15);
+  --status-archived-text: #D1D5DB;
+  --status-archived-dot: #9CA3AF;
+
+  /* Shadows in Dark Mode (Subtle glow/depth) */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 12px -1px rgb(0 0 0 / 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input {
+  font-family: inherit;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.smooth-transition {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   STRICT PDF & INVOICE EXPORT PRESERVATION
+   The PDF generation and print outputs MUST NEVER change color.
+   They strictly remain pristine white paper styling with original colors.
+   ============================================================ */
+#invoice-content,
+.pdf-export,
+.invoicing-wrapper.pdf-export,
+.pdf-export * {
+  color-scheme: light !important;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+.pdf-export {
+  background-color: #FFFFFF !important;
+  color: #111827 !important;
+}
+
+/* ============================================================
+   DARK THEME COMPONENT OVERRIDES
+   Ensures all elements across every view adopt M3 color roles
+   ============================================================ */
+[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]):not([class*="pdf"]):not(.no-dark-override),
+[data-theme="dark"] textarea:not([class*="pdf"]):not(.no-dark-override),
+[data-theme="dark"] select:not([class*="pdf"]):not(.no-dark-override) {
+  background-color: var(--md-sys-color-surface-container-lowest);
+  color: var(--md-sys-color-on-surface);
+  border-color: var(--md-sys-color-outline-variant);
+}
+
+[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]):focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+  border-color: var(--md-sys-color-primary) !important;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: var(--md-sys-color-outline);
+}
+
+/* Outer layout background in dark mode */
+[data-theme="dark"] .bg-gray-50 {
+  background-color: var(--bg-main) !important;
+}
+
+/* Table styling in dark mode */
+[data-theme="dark"] table th {
+  background-color: var(--md-sys-color-surface-container-low) !important;
+  color: var(--md-sys-color-on-surface-variant) !important;
+  border-color: var(--md-sys-color-outline-variant) !important;
+}
+
+[data-theme="dark"] table td {
+  border-color: var(--md-sys-color-outline-variant) !important;
+  color: var(--md-sys-color-on-surface) !important;
+}
+
+[data-theme="dark"] table tr:hover td {
+  background-color: var(--md-sys-color-surface-container-high) !important;
+}
+
+/* Scrollbar in dark mode */
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--md-sys-color-surface-container-lowest);
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-surface-container-highest);
+  border-radius: 4px;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+}

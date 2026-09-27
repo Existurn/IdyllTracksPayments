@@ -1,0 +1,132 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.triggerBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-surface);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.triggerBtn:hover {
+  background-color: var(--bg-hover);
+}
+
+.icon {
+  color: var(--text-tertiary);
+}
+
+.popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  box-shadow: var(--shadow-dropdown, 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1));
+  z-index: 60;
+  padding: 16px;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
+}
+
+/* React Day Picker Overrides */
+.calendar {
+  --rdp-accent-color: var(--primary) !important;
+  --rdp-background-color: var(--bg-hover) !important;
+  --rdp-today-color: var(--primary) !important;
+  --rdp-selected-border: 2px solid var(--primary) !important;
+  --rdp-day_button-border-radius: 6px !important;
+  margin: 0;
+  font-family: inherit;
+  color: var(--text-primary);
+}
+
+/* Hide default navigation buttons since we have custom ones, or style them */
+.calendar :global(.rdp-nav_button) {
+  border-radius: 6px;
+  color: var(--text-primary);
+}
+
+.calendar :global(.rdp-nav_button:hover) {
+  background-color: var(--bg-hover);
+}
+
+.calendar :global(.rdp-weekday) {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: none;
+}
+
+.calendar :global(.rdp-day_button) {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.calendar :global(.rdp-selected .rdp-day_button) {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  font-weight: 600;
+  border-color: var(--primary) !important;
+}
+
+.calendar :global(.rdp-selected .rdp-day_button:hover) {
+  background-color: var(--primary) !important;
+}
+
+.calendar :global(.rdp-caption_label) {
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-primary);
+}
+
+/* Add tiny arrow down to match design */
+.calendar :global(.rdp-caption_label::after) {
+  content: "";
+  border: solid var(--text-primary);
+  border-width: 0 1.5px 1.5px 0;
+  display: inline-block;
+  padding: 2.5px;
+  transform: rotate(45deg);
+  margin-left: 4px;
+  margin-top: -4px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-default);
+}
+
+.footerBtn {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: transparent;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.footerBtn:hover {
+  background-color: var(--bg-hover);
+}

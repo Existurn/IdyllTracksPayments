@@ -1,0 +1,199 @@
+================================================================================
+📋 IDYLL TRACK PAYMENTS — COMPLETE PRE-DEPLOYMENT TEST CHECKLIST
+================================================================================
+Use this checklist to manually test and verify every button, function, and view
+before deploying to production. Mark items as [X] as you test and verify them.
+
+--------------------------------------------------------------------------------
+🔐 1. AUTHENTICATION & ONBOARDING
+--------------------------------------------------------------------------------
+[ ] Email & Password Login: Enter valid credentials -> click "Log In"
+[ ] Password Visibility: Click the eye icon to toggle dots vs plain text
+[ ] Validation: Submit empty or incorrect password -> shows error alert
+[ ] Google Sign-In: Click "Continue with Google" -> Supabase OAuth flow completes
+[ ] "Forgot Password?" Link: Click to open password recovery form
+[ ] "Create New Account" Link: Navigates to sign-up tab
+[ ] New Account Creation: Enter email + password -> click "Create Account"
+[ ] "Wrong email address? Change it": Verify destination update option
+[ ] Welcome Tour: Shows welcome modal on first login
+[ ] Tour Steps: Next / Back / Skip / Get Started work smoothly
+[ ] Scroll Lock: Background cannot scroll while welcome tour is open
+
+--------------------------------------------------------------------------------
+👤 2. USER SETTINGS & PROFILE (/settings)
+--------------------------------------------------------------------------------
+[ ] 2-Column Split: Page takes full screen width (Profile left, Preferences right)
+[ ] Profile Picture: Shows avatar with camera icon badge
+[ ] "Change Picture" Button: Opens modal with gallery & upload tabs
+[ ] Preset Avatar: Select preset avatar -> "Save Picture" updates avatar
+[ ] Custom Upload: Upload photo -> crop & zoom tool -> saves cropped picture
+[ ] PDF Document: Upload PDF file -> shows PDF badge & document card
+[ ] "View PDF" Button: Opens uploaded PDF in a new tab
+[ ] "Remove" Button: Restores default initial letter
+[ ] "Fetch from Google": (Google accounts) pulls Google profile picture
+[ ] Display Name: Input edits successfully (required validation check)
+[ ] Full Name: Input edits successfully (used in invoice auto-fill)
+[ ] Mobile Number: Input accepts digits and dial code
+[ ] Country Dropdown: Click to open -> search country -> updates flag & dial code
+[ ] Unique ID: Read-only format (e.g. IDY-...)
+[ ] Email Address: Read-only registered email with mail icon
+[ ] Sign Up Method: Read-only sign-up provider
+[ ] Time Format: Custom dropdown switches between 12-hour and 24-hour
+[ ] Email Notifications Toggle:
+    - Toggle OFF -> badge turns red ("Emails Paused") & paused list shown
+    - Toggle ON -> badge turns green ("Emails Enabled") & active list shown
+[ ] Keyboard Shortcuts:
+    - Click "iOS / Mac" -> highlights with border & displays ⌘K
+    - Click "Windows" -> highlights with border & displays Ctrl + K
+[ ] Top Bar Display Toggles:
+    - Toggle "Show Date" -> updates top header clock
+    - Toggle "Show Day" -> updates top header clock
+    - Toggle "Show Time" -> updates top header clock
+[ ] "Save Changes" Button: Click to save -> spinner appears -> toast confirms
+[ ] Persistence: Refresh page -> all saved values reload accurately
+[ ] Unsaved Changes Warning: Leaving tab with unsaved edits prompts confirmation
+
+--------------------------------------------------------------------------------
+🧾 3. INVOICING & INVOICE CREATION (/payments & /idyll-invoicing)
+--------------------------------------------------------------------------------
+[ ] Invoice Number: Clean auto-generated ID (e.g. IDYSAT-0004)
+[ ] Invoice Date & Due Date: Date pickers select and format dates
+[ ] Billed To: Client Name, Email, Address inputs work
+[ ] Service Payroll Items:
+    - Enter Service Description, Quantity, Rate
+    - Click "+ Add Service": adds 2nd and 3rd service rows
+    - Max 3 Services: Button disables or warns when 3 items reached
+    - Delete Service: Trash icon removes row and updates calculations
+    - Total Calculation: Subtotal calculates in real time
+[ ] Currency Selector: Change currency (₹, $, €, £) -> updates symbol
+[ ] Payment Details & Notes (Left Box):
+    - Type notes / payment info
+    - Character counter (0/200) counts keystrokes
+    - Click "Use Saved Payment Details": modal opens -> click method autofills
+[ ] Total Amount Card (Right Box):
+    - Starts on exact same horizontal line as the notes textarea
+    - Same height (105px) as the notes textarea
+    - Formats amount with commas (e.g. ₹15,000.00)
+    - "In words" box accurately spells amount in words
+[ ] Submit Invoice:
+    - Required field validation flags empty fields
+    - Valid submission shows confetti/success animation and saves
+    - Triggers confirmation email if Email Notifications are ON
+[ ] Export / PDF Actions:
+    - Click "Download PDF": downloads clean invoice PDF
+    - Click "Print": opens print preview dialog cleanly formatted
+    - Click copy link icon: copies invoice link to clipboard
+
+--------------------------------------------------------------------------------
+📊 4. INVOICES TABLE & INFO MODAL
+--------------------------------------------------------------------------------
+[ ] Table Display: Columns (Invoice #, Date, Client, Amount, Status, Actions)
+[ ] Status Pills: Color-coded for Pending, Approved, Paid, Rejected
+[ ] Search Bar: Filter invoices by client name or invoice number
+[ ] Status Filters: Filter by "All", "Pending", "Paid"
+[ ] Sorting: Click table headers to sort ascending / descending
+[ ] Pagination: Navigate between pages if multiple invoices exist
+[ ] Invoice Details Modal:
+    - Click invoice row -> opens info modal
+    - Single-column clean view without scrollbars
+    - Clean low-opacity dark backdrop (no aggressive blur)
+    - Background body scroll is locked while open
+    - Click 'X' or outside closes modal
+[ ] Edit Invoice: Edit icon opens invoice form with populated data
+[ ] Delete Invoice: Trash icon prompts confirmation and deletes
+
+--------------------------------------------------------------------------------
+💳 5. PAYMENT DETAILS (/payment-details)
+--------------------------------------------------------------------------------
+[ ] Tabs: Wire Transfer, UPI, PayPal, Wise
+[ ] Add Bank Wire: Account Holder, Number, IFSC, Bank Name -> Save
+[ ] Add UPI: Name, UPI ID -> Save
+[ ] UPI QR Code: Upload image -> crop tool -> saves QR preview
+[ ] Remove QR Code: Trash icon removes QR code
+[ ] Add PayPal / Wise: Email / handle -> Save
+[ ] Set as Default: Click to mark primary payment method
+[ ] Delete Method: Trash icon removes method
+
+--------------------------------------------------------------------------------
+📑 6. BILLING VIEW (/billing)
+--------------------------------------------------------------------------------
+[ ] Table Columns:
+    - Default clean layout: Checkbox column hidden by default; every property starts directly under its title
+    - "Select" button: Located in the top action bar next to filters; clicks to toggle Selection Mode (revealing checkboxes)
+    - Amount column: formats with currency and comma separators (e.g. ₹15,000.00 or $1,250.00)
+[ ] Bulk Actions Bar:
+    - Select checkboxes on rows -> bulk bar appears
+    - 8px border-radius, clean 36px buttons
+    - "Mark Paid": updates selected to Paid
+    - "Export CSV / PDF": downloads summary
+    - "Delete Selected": removes selected rows
+[ ] User Filter:
+    - 38px clean light button
+    - Filter invoices by specific user
+[ ] Date Filter: Filter invoices by date range
+[ ] Summary Metrics: Total Billed, Paid, and Outstanding calculate correctly
+
+--------------------------------------------------------------------------------
+🪪 7. KYC VERIFICATION & ADMIN KYC MANAGEMENT
+--------------------------------------------------------------------------------
+[ ] User KYC (/kyc): Select document type -> upload front & back -> crop -> submit
+[ ] Status: Badge shows "Pending Verification" and locks inputs
+[ ] Admin KYC Queue (/kyc-management): Lists pending submissions
+[ ] Full-Screen Inspection: Click document to inspect high-resolution ID
+[ ] Approve KYC: Click "Approve" -> user verified badge activates
+[ ] Reject KYC: Click "Reject" -> prompt reason -> notifies user
+
+--------------------------------------------------------------------------------
+👥 8. WORKSPACE USERS & ROLES (/users)
+--------------------------------------------------------------------------------
+[ ] Active Users Tab: Lists users, emails, roles, join dates
+[ ] Pending Approvals Tab: Lists pending user requests and rejected users with status badges
+[ ] Approve User: Click "Approve" -> approves user and sends account approval email
+[ ] Reject User: Click "Reject" -> sets status to Rejected
+[ ] Delete User (Pending/Rejected): Click "Delete" -> confirmation modal -> permanently deletes user from database
+[ ] Role Changes: Change user to User, Finance, or Admin
+[ ] Permission Enforcement: Non-admins blocked from Admin views
+[ ] Remove Active User: Admin can remove user from workspace after confirmation
+
+--------------------------------------------------------------------------------
+🛡️ 9. AUDIT LOGS (/audit)
+--------------------------------------------------------------------------------
+[ ] Event Stream: Logs logins, invoice creation, status changes, role edits
+[ ] Details: Actor, action name, timestamp, metadata
+[ ] Search & Filter: Filter by event type, date, or user
+
+--------------------------------------------------------------------------------
+⚙️ 10. ADMIN PANEL (/admin-panel)
+--------------------------------------------------------------------------------
+[ ] Workspace Metrics: Total users, total invoice volume, pending reviews
+[ ] Broadcast Message: Send platform-wide announcement banner
+
+--------------------------------------------------------------------------------
+🔔 11. NOTIFICATIONS & EMAIL DELIVERY (Resend)
+--------------------------------------------------------------------------------
+[ ] Header Bell: Opens notification dropdown with unread badge
+[ ] Mark All as Read: Clears badge count
+[ ] Email On Invoice Creation: Submitting invoice sends receipt via Resend
+[ ] Email On Status Update: Marking Paid / Approved sends update email
+[ ] Email Paused: Toggle off email notifications in settings -> verifies no emails sent
+
+--------------------------------------------------------------------------------
+🖥️ 12. SHORTCUTS & RESPONSIVENESS
+--------------------------------------------------------------------------------
+[ ] Keyboard Shortcut: Press ⌘K (Mac) or Ctrl+K (Windows) -> opens search modal
+[ ] Desktop View: Settings page splits into 2 equal columns full-width
+[ ] Mobile View: Collapses smoothly to single column; hamburger menu works
+
+--------------------------------------------------------------------------------
+🚪 13. LOGOUT & SECURITY
+--------------------------------------------------------------------------------
+[ ] Sign Out: Sidebar profile -> click "Sign Out"
+[ ] Session Cleared: Redirects to /login
+[ ] Protected Routes: Accessing /dashboard or /settings while logged out blocks entry
+
+================================================================================
+STATUS:
+Date Tested: ___________________
+Tested By:   ___________________
+Ready for Deployment: [ ] YES   [ ] NO
+================================================================================

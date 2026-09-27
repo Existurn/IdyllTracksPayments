@@ -1,0 +1,102 @@
+.carouselWrapper {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.bannerCard {
+  background-color: var(--bg-surface, #FFFFFF);
+  border: 1px solid var(--border-default, #E5E7EB);
+  border-radius: 8px;
+  padding: 14px 20px;
+  color: var(--text-primary, #111827);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.bannerLeft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.bellIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary, #111827);
+  letter-spacing: -0.01em;
+}
+
+.message {
+  font-size: 13.5px;
+  color: var(--text-secondary, #4B5563);
+  line-height: 1.4;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Right Controls / Indicators */
+.indicators {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--border-default, #D1D5DB);
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.activeDot {
+  width: 16px;
+  border-radius: 4px;
+  background-color: var(--text-primary, #111827);
+}
+
+.counterBadge {
+  font-size: 11px;
+  color: var(--text-tertiary, #9CA3AF);
+  font-weight: 500;
+  margin-left: 4px;
+}
+

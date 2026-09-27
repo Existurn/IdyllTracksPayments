@@ -1,0 +1,366 @@
+.container {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 8px 0;
+}
+
+.pageSubtitle {
+  color: #6B7280;
+  font-size: 15px;
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #E5E7EB;
+  padding-bottom: 12px;
+}
+
+.tabBtn {
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #6B7280;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tabBtn:hover {
+  background-color: #F9FAFB;
+  color: #111827;
+}
+
+.activeTab {
+  background-color: #F3F4F6;
+  color: #111827;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EF4444;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9999px;
+  line-height: 1;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  box-sizing: border-box;
+}
+
+.userList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.userCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.userCard:hover {
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--bg-hover);
+  border: 1px solid var(--border-default);
+}
+
+.userName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.userEmail {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.roleDropdownContainer {
+  position: relative;
+  width: 96px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.roleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 6px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary, #111827);
+  cursor: pointer;
+  padding: 6px 8px;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.roleBtn:hover {
+  background-color: var(--bg-hover, #F9FAFB);
+  border-color: var(--border-default, #E5E7EB);
+}
+
+.roleChevron {
+  color: var(--text-tertiary, #6B7280);
+  flex-shrink: 0;
+}
+
+.roleMenu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background-color: var(--bg-surface, #FFFFFF);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border-default, #E5E7EB);
+  z-index: 10;
+  min-width: 120px;
+  overflow: hidden;
+}
+
+.roleMenuItem {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: var(--text-secondary, #4B5563);
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.roleMenuItem:hover {
+  background-color: var(--bg-hover, #F9FAFB);
+  color: var(--text-primary, #111827);
+}
+
+.roleMenuItemActive {
+  color: var(--text-primary, #111827);
+  font-weight: 600;
+  background-color: var(--bg-hover, #F3F4F6);
+}
+
+.roleBadge {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.deleteBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary, #9CA3AF);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.deleteBtn:hover {
+  color: #EF4444;
+  background-color: #FEE2E2;
+}
+
+.approveBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--bg-surface, #FFFFFF);
+  color: var(--text-secondary, #4B5563);
+  border: 1px solid var(--border-default, #E5E7EB);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.approveBtn:hover {
+  background-color: #F0FDF4;
+  border-color: #10B981;
+  color: #059669;
+}
+
+.approveBtn:active {
+  transform: scale(0.98);
+}
+
+.rejectBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--bg-surface, #FFFFFF);
+  color: var(--text-secondary, #4B5563);
+  border: 1px solid var(--border-default, #E5E7EB);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rejectBtn:hover {
+  background-color: #FEF2F2;
+  border-color: #EF4444;
+  color: #DC2626;
+}
+
+.rejectBtn:active {
+  transform: scale(0.98);
+}
+
+.approveBtn:disabled,
+.rejectBtn:disabled,
+.deleteActionBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+}
+
+.deleteActionBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--bg-surface, #FFFFFF);
+  color: var(--text-secondary, #4B5563);
+  border: 1px solid var(--border-default, #E5E7EB);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.deleteActionBtn:hover {
+  background-color: #FEF2F2;
+  border-color: #FCA5A5;
+  color: #DC2626;
+}
+
+.deleteActionBtn:active {
+  transform: scale(0.98);
+}
+
+:global([data-theme="dark"]) .approveBtn,
+:global([data-theme="dark"]) .rejectBtn,
+:global([data-theme="dark"]) .deleteActionBtn {
+  background-color: transparent;
+  color: #9CA3AF;
+  border-color: #374151;
+}
+
+:global([data-theme="dark"]) .approveBtn:hover {
+  background-color: rgba(16, 185, 129, 0.12);
+  border-color: #10B981;
+  color: #34D399;
+}
+
+:global([data-theme="dark"]) .rejectBtn:hover {
+  background-color: rgba(239, 68, 68, 0.12);
+  border-color: #EF4444;
+  color: #F87171;
+}
+
+.emptyState {
+  padding: 64px 24px;
+  text-align: center;
+  color: #6B7280;
+  background-color: #F9FAFB;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.lockedAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-tertiary, #9CA3AF);
+  background-color: var(--bg-hover, #F9FAFB);
+  border: 1px solid var(--border-default, #E5E7EB);
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.lockedTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 9999px;
+  background-color: #EFF6FF;
+  color: #2563EB;
+  border: 1px solid #BFDBFE;
+}
+

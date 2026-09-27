@@ -1,0 +1,1196 @@
+.invoicing-wrapper {
+  --primary: #111827;
+  --black: #222222;
+  --white: #FFFFFF;
+  --bg-light: #F5F5F5;
+  --gray-200: #E5E7EB;
+  --gray-400: #9CA3AF;
+  --gray-600: #4B5563;
+  --border-radius: 6px;
+  font-family: 'SF Pro Display', 'SF Pro Display Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  background-color: var(--bg-light);
+  color: var(--black);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.invoicing-wrapper .text-primary { color: var(--primary); }
+.invoicing-wrapper .text-black { color: var(--black); }
+.invoicing-wrapper .bg-primary { background-color: var(--primary); color: var(--white); }
+.invoicing-wrapper .bg-white { background-color: var(--white); }
+.invoicing-wrapper .bg-black { background-color: var(--black); color: var(--white); }
+
+.invoicing-wrapper input, 
+.invoicing-wrapper select, 
+.invoicing-wrapper textarea {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background-color: var(--bg-light);
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.invoicing-wrapper textarea {
+  overflow: hidden;
+}
+
+.invoicing-wrapper input:focus, 
+.invoicing-wrapper select:focus, 
+.invoicing-wrapper textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: var(--white);
+}
+
+.invoicing-wrapper input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.invoicing-wrapper input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+/* Invoice Date Picker Overrides */
+.invoice-date-picker > div {
+  width: 100%;
+}
+.invoice-date-picker button[class*="triggerBtn"] {
+  width: 100% !important;
+  min-height: 46px !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 6px !important;
+  background-color: var(--bg-light) !important;
+  border: 1px solid transparent !important;
+  color: var(--theme-text) !important;
+  font-size: 0.95rem !important;
+  justify-content: space-between !important;
+  flex-direction: row-reverse !important;
+}
+.invoice-date-picker button[class*="triggerBtn"] span {
+  font-weight: 400 !important;
+}
+
+.invoicing-wrapper label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.invoicing-wrapper .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+  height: 48px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  gap: 0.5rem;
+}
+
+.invoicing-wrapper .btn-primary {
+  background-color: var(--black);
+  color: var(--white);
+}
+.invoicing-wrapper .btn-primary:hover {
+  background-color: #374151;
+}
+
+.invoicing-wrapper .btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--gray-200);
+  color: var(--black);
+}
+.invoicing-wrapper .btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.invoicing-wrapper .btn-icon {
+  padding: 0.5rem;
+}
+
+.invoicing-wrapper .card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-200);
+  padding: 3rem;
+}
+
+.invoicing-wrapper .invoice-header {
+  border-bottom: 2px solid var(--gray-200);
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.invoicing-wrapper .invoice-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  table-layout: fixed;
+}
+
+.invoicing-wrapper .invoice-table thead tr {
+  height: auto;
+}
+
+.invoicing-wrapper .invoice-table th {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 0 1rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  vertical-align: middle;
+  line-height: 1.2;
+  border: none;
+  box-sizing: border-box;
+  height: 48px;
+}
+
+.invoicing-wrapper .invoice-table th:first-child { 
+  border-top-left-radius: var(--border-radius); 
+  border-bottom-left-radius: var(--border-radius); 
+}
+
+.invoicing-wrapper .invoice-table th:last-child { 
+  border-top-right-radius: var(--border-radius); 
+  border-bottom-right-radius: var(--border-radius); 
+}
+
+.invoicing-wrapper .invoice-table td {
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  border: none;
+  box-sizing: border-box;
+}
+
+.invoicing-wrapper .sidebar {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-200);
+  padding: 1.5rem;
+  position: sticky;
+  top: 2rem;
+}
+
+.invoicing-wrapper .title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+/* PDF Export Specific Styles */
+.pdf-export,
+.invoicing-wrapper.pdf-export,
+.invoicing-wrapper.pdf-export .card,
+.invoicing-wrapper .card.pdf-export,
+.pdf-export .card,
+.pdf-export #invoice-content {
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background-color: #FFFFFF !important;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+.pdf-export,
+.pdf-export * {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  box-sizing: border-box !important;
+}
+
+.invoice-page-1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.pdf-export .invoice-page-1 {
+  width: 794px !important;
+  height: 1115px !important;
+  max-height: 1115px !important;
+  position: relative !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  overflow: hidden !important;
+  background-color: #FFFFFF !important;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.pdf-export .invoice-qr-page {
+  width: 794px !important;
+  height: 1115px !important;
+  max-height: 1115px !important;
+  padding: 60px 52px 40px 52px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  page-break-before: always !important;
+  break-before: page !important;
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  overflow: hidden !important;
+  background-color: #FFFFFF !important;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Fixed positioning sections for PDF single-page template */
+.pdf-export .pdf-section-header {
+  position: absolute !important;
+  top: 48px !important;
+  left: 52px !important;
+  width: 690px !important;
+  height: 98px !important;
+  box-sizing: border-box !important;
+  border-bottom: 1.5px solid #E5E7EB !important;
+}
+
+.pdf-export .pdf-section-client {
+  position: absolute !important;
+  top: 162px !important;
+  left: 52px !important;
+  width: 690px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.pdf-export .pdf-section-table {
+  position: absolute !important;
+  top: 405px !important;
+  left: 52px !important;
+  width: 690px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.pdf-export .pdf-section-notes-total {
+  position: absolute !important;
+  top: 715px !important;
+  left: 52px !important;
+  width: 690px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.pdf-export .pdf-section-footer {
+  position: absolute !important;
+  top: 980px !important;
+  left: 52px !important;
+  width: 690px !important;
+  height: 90px !important;
+  box-sizing: border-box !important;
+}
+
+.pdf-export .no-print {
+  display: none !important;
+}
+
+.pdf-export input,
+.pdf-export select,
+.pdf-export textarea {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: var(--black) !important;
+  appearance: none !important;
+  resize: none !important;
+  box-shadow: none !important;
+}
+
+.pdf-export label {
+  margin-bottom: 0.25rem !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* Print Rules */
+@media print {
+  body {
+    background-color: white;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .invoicing-wrapper .container {
+    padding: 0;
+    max-width: 100%;
+  }
+  .invoicing-wrapper .card {
+    border: none;
+    padding: 0;
+  }
+}
+
+/* Responsive: Tablet */
+@media (max-width: 1024px) {
+  .invoicing-wrapper .app-layout {
+    flex-direction: column !important;
+  }
+  .invoicing-wrapper .sidebar-area {
+    width: 100% !important;
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+  .invoicing-wrapper .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .invoicing-wrapper .card {
+    padding: 1.5rem;
+  }
+  
+  .invoicing-wrapper .header-actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch !important;
+    gap: 1rem !important;
+  }
+  
+  .invoicing-wrapper .header-actions select,
+  .invoicing-wrapper .header-actions button {
+    width: 100%;
+  }
+
+  .invoicing-wrapper .right-column {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .invoicing-wrapper .invoice-header {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1.5rem;
+  }
+
+  .invoicing-wrapper .invoice-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1rem;
+  }
+  
+  .invoicing-wrapper .invoice-table {
+    min-width: 650px;
+  }
+}
+
+/* Currency Animation */
+@keyframes popCurrency {
+  0% { transform: scale(0.8) translateY(8px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.currency-anim {
+  display: inline-block;
+  animation: popCurrency 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Success Tick Animation */
+.success-checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 4;
+  stroke: #22c55e;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px #22c55e;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.success-checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 4;
+  stroke-miterlimit: 10;
+  stroke: #22c55e;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.success-checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 40px #e8f5e9;
+  }
+}
+
+/* =========================================
+   Saved Payment Details Modal Styles
+   ========================================= */
+
+.saved-payment-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.saved-payment-modal-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  width: 95%;
+  max-width: 840px;
+  height: 520px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Modal Header */
+.saved-payment-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #f3f4f6;
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+
+.saved-payment-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.saved-payment-header-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.saved-payment-modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.saved-payment-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.saved-payment-close-btn:hover {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
+}
+
+/* Modal Body */
+.saved-payment-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+/* Payment Cards List */
+.saved-payment-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.saved-payment-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.15rem 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.saved-payment-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.06);
+}
+
+.saved-payment-card-default {
+  border: 1.5px solid #10b981 !important;
+  background-color: #f0fdf4 !important;
+}
+
+.saved-payment-card-left {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.saved-payment-card-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.saved-payment-card-icon {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.saved-payment-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.saved-payment-card-top-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.saved-payment-card-primary {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  word-break: break-word;
+}
+
+.saved-payment-default-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: #10b981;
+  color: #ffffff;
+  font-size: 0.725rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.saved-payment-card-subtext {
+  font-size: 0.85rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.15rem;
+}
+
+.saved-payment-qr-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: #047857;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.saved-payment-use-btn {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  padding: 0.6rem 1.35rem !important;
+  border-radius: 8px !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  border: none !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  transition: all 0.15s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.saved-payment-use-btn:hover {
+  background-color: #1f2937 !important;
+  box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-1px);
+}
+
+.saved-payment-use-btn:active {
+  background-color: #000000 !important;
+  transform: translateY(0);
+}
+
+/* Empty State */
+.saved-payment-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  gap: 0.75rem;
+  margin: auto 0;
+}
+
+.saved-payment-empty-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.saved-payment-empty-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.saved-payment-empty-desc {
+  font-size: 0.875rem;
+  color: #6b7280;
+  max-width: 440px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Footer Tabs */
+.saved-payment-modal-footer {
+  border-top: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  padding: 1rem 1.5rem;
+  flex-shrink: 0;
+}
+
+.saved-payment-tabs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.saved-payment-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  color: #6b7280 !important;
+  font-size: 0.875rem;
+  font-weight: 500 !important;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.saved-payment-tab-btn:hover {
+  background-color: #f9fafb !important;
+  color: #111827 !important;
+}
+
+.saved-payment-tab-btn-active {
+  background-color: #f3f4f6 !important;
+  border-color: #e5e7eb !important;
+  color: #111827 !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+}
+
+.saved-payment-tab-logo-box {
+  width: 24px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.saved-payment-tab-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .saved-payment-tabs-bar {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.35rem;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 640px) {
+  .saved-payment-modal-body {
+    padding: 1.25rem;
+  }
+  .saved-payment-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1.15rem;
+  }
+  .saved-payment-use-btn {
+    width: 100% !important;
+  }
+  .saved-payment-modal-container {
+    min-height: auto;
+    max-height: 94vh;
+  }
+}
+
+/* Validation Error Styles */
+.invoicing-wrapper input.input-error,
+.invoicing-wrapper textarea.input-error,
+.invoicing-wrapper .invoice-date-picker.date-error button[class*="triggerBtn"],
+.invoicing-wrapper .payment-dropdown-error {
+  border: 1.5px solid #DC2626 !important;
+  background-color: #FEF2F2 !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+.invoicing-wrapper input.input-error:focus,
+.invoicing-wrapper textarea.input-error:focus {
+  border-color: #DC2626 !important;
+  box-shadow: none !important;
+  background-color: #FFFFFF !important;
+}
+
+/* Plain 2-Column Form Layout - No card boxes, clean 8px rounded corners */
+.invoice-form-layout {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 4rem;
+}
+
+.invoice-form-header-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0 0 1.25rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: none;
+  border-bottom: 1px solid var(--gray-200, #E5E7EB);
+  margin-bottom: 0.5rem;
+}
+
+.invoice-form-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.invoice-form-section-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--black, #222222);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.invoice-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.invoice-form-field:last-child {
+  margin-bottom: 0;
+}
+
+.invoice-form-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray-600, #4B5563);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0;
+}
+
+.invoice-form-field input,
+.invoice-form-field textarea {
+  background-color: var(--bg-light, #F9FAFB);
+  border: 1px solid var(--gray-200, #E5E7EB);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.invoice-form-field input:focus,
+.invoice-form-field textarea:focus {
+  background-color: #FFFFFF;
+  border-color: var(--black, #222222);
+  outline: none;
+  box-shadow: 0 0 0 1px var(--black, #222222);
+}
+
+.invoice-form-table-container {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  overflow-x: auto;
+  padding: 3px;
+  margin: -3px 0;
+  box-sizing: border-box;
+}
+
+.invoice-form-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  margin: 0;
+}
+
+.invoice-form-table thead tr {
+  height: 48px;
+}
+
+.invoice-form-table th {
+  background-color: var(--black, #222222);
+  color: #FFFFFF;
+  padding: 0 0.75rem;
+  height: 48px;
+  vertical-align: middle;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+}
+
+.invoice-form-table th:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  padding-left: 1rem;
+}
+
+.invoice-form-table th:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  padding-right: 1rem;
+}
+
+.invoice-form-table td {
+  padding: 0 0.4rem;
+  vertical-align: middle;
+  border: none;
+  background-color: transparent;
+}
+
+.invoice-form-table td:first-child {
+  padding-left: 2px;
+}
+
+.invoice-form-table td:last-child {
+  padding-right: 2px;
+}
+
+.invoice-form-table tr:last-child td {
+  border-bottom: none;
+}
+
+.invoice-form-table input {
+  background-color: var(--bg-light, #F9FAFB);
+  border: 1px solid var(--gray-200, #E5E7EB);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.invoice-form-table input:focus {
+  background-color: #FFFFFF;
+  border-color: var(--black, #222222);
+  outline: none;
+  box-shadow: 0 0 0 1px var(--black, #222222);
+  position: relative;
+  z-index: 2;
+}
+
+/* Slide-out Tools Drawer Animations */
+@keyframes drawerFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes drawerSlideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.tools-drawer-overlay {
+  animation: drawerFadeIn 0.2s ease-out forwards;
+}
+
+.tools-drawer-panel {
+  animation: drawerSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* =========================================================
+   Continuous Single White Page Submission Flow
+   ========================================================= */
+.invoice-fullscreen-white-flow {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  animation: whitePageFadeIn 0.35s ease-out forwards;
+}
+
+@keyframes whitePageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.invoice-flow-center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 480px;
+  width: 100%;
+  animation: flowContentFadeIn 0.35s ease-out forwards;
+}
+
+@keyframes flowContentFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.invoice-flow-spinner-wrap {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invoice-flow-spinner {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 3.5px solid #E5E7EB;
+  border-top-color: #111827;
+  animation: flowSpin 0.75s linear infinite;
+}
+
+@keyframes flowSpin {
+  100% { transform: rotate(360deg); }
+}
+
+.invoice-flow-check-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #10B981;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  animation: checkPopIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes checkPopIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.invoice-flow-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.02em;
+}
+
+.invoice-flow-subtitle {
+  font-size: 15px;
+  color: #6B7280;
+  margin: 0 0 28px 0;
+  line-height: 1.55;
+  max-width: 440px;
+}
+
+.invoice-flow-meta {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4B5563;
+  background-color: #F3F4F6;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+}
+
+/* Crisp Clean SVG Tick without any glow or drop shadow */
+.success-tick-circle-noglow {
+  stroke-dasharray: 290;
+  stroke-dashoffset: 290;
+  animation: tickCircleDrawNoGlow 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes tickCircleDrawNoGlow {
+  0% { stroke-dashoffset: 290; opacity: 0; }
+  15% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+.success-tick-check-noglow {
+  stroke-dasharray: 65;
+  stroke-dashoffset: 65;
+  animation: tickCheckDrawNoGlow 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.28s;
+}
+
+@keyframes tickCheckDrawNoGlow {
+  0% { stroke-dashoffset: 65; opacity: 0; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+

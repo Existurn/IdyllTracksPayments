@@ -1,0 +1,783 @@
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 120px);
+  position: relative;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.headerTextGroup {
+  flex: 1;
+}
+
+.headerAadhaarLogoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.headerAadhaarLogo {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #6B7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Locked Banner */
+.lockedBanner {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #475569;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.lockedBannerIcon {
+  color: #64748B;
+  flex-shrink: 0;
+}
+
+/* Main Layout: Form (Left) & Visual Reference (Right) */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex: 1;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 960px) {
+  .layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 64px;
+  }
+}
+
+/* Form Area */
+.formArea {
+  flex: 1;
+  min-width: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.fieldGroup label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.input:disabled {
+  background-color: var(--bg-hover);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  border-color: var(--border-default);
+}
+
+.input::placeholder {
+  color: var(--text-secondary);
+  font-size: 13.5px;
+}
+
+.monoInput {
+  letter-spacing: 0.08em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.maskToggleBtn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maskToggleBtn:hover {
+  color: var(--text-primary);
+}
+
+.textarea {
+  width: 100%;
+  min-height: 96px;
+  padding: 10px 14px;
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  outline: none;
+  resize: vertical;
+  line-height: 1.5;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.textarea:disabled {
+  background-color: var(--bg-hover);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  border-color: #E5E7EB;
+}
+
+.textarea::placeholder {
+  color: #9CA3AF;
+  font-size: 13.5px;
+}
+
+/* 2-Column Row for Aadhaar & DOB */
+.fieldRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 580px) {
+  .fieldRow {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .fieldRow > div {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* Consent Text & Buttons Footer */
+.formFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 20px;
+  margin-top: 4px;
+  border-top: 1px solid #F3F4F6;
+}
+
+@media (min-width: 640px) {
+  .formFooter {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.consentText {
+  font-size: 12.5px;
+  color: #6B7280;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+  max-width: 440px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cancelBtn {
+  background: transparent;
+  border: 1px solid #E5E7EB;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #4B5563;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.cancelBtn:hover:not(:disabled) {
+  background-color: #F9FAFB;
+  color: #111827;
+}
+
+.saveBtn {
+  background: #111827;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s ease;
+}
+
+.saveBtn:hover:not(:disabled) {
+  background-color: #1F2937;
+}
+
+.saveBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Visual Reference Section (Clean, Frameless & Bigger) */
+.referenceSidebar {
+  width: 100%;
+}
+
+@media (min-width: 960px) {
+  .referenceSidebar {
+    width: 440px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 24px;
+    margin-top: 0;
+  }
+}
+
+.referenceContent {
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.cardImageWrapper {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+
+.cardImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid #E5E7EB;
+  display: block;
+}
+
+.referenceTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 6px 0;
+}
+
+.referenceText {
+  font-size: 13.5px;
+  color: #6B7280;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 400px;
+}
+
+/* Bottom Sticked Notice */
+.notice {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  margin-top: auto;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.noticeIcon {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.noticeText {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.noticeStrong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Unrequested State */
+.unrequestedContainer {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.unrequestedIconWrapper {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: var(--bg-hover);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.unrequestedTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
+}
+
+.unrequestedText {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 480px;
+}
+
+/* Verified State */
+.verifiedContainer {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 36px 20px 48px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.verifiedIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.verifiedIcon {
+  color: #059669;
+}
+
+.verifiedTitle {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary, #111827);
+  margin: 0 0 6px 0;
+  letter-spacing: -0.02em;
+}
+
+.verifiedSubtitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: #059669;
+  margin: 0 0 28px 0;
+}
+
+.verifiedCard {
+  width: 100%;
+  max-width: 580px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  text-align: left;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.verifiedMessageText {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-secondary, #4B5563);
+  margin: 0 0 20px 0;
+}
+
+.verifiedNoticeBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: var(--bg-hover, #F8FAFC);
+  border: 1px solid var(--border-default, #E2E8F0);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+}
+
+.verifiedNoticeIcon {
+  color: #64748B;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.verifiedNoticeContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.verifiedNoticeTitle {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-primary, #334155);
+  margin-bottom: 3px;
+}
+
+.verifiedNoticeParagraph {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary, #475569);
+  margin: 0;
+}
+
+.verifiedDetailsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-light, #F3F4F6);
+}
+
+@media (min-width: 520px) {
+  .verifiedDetailsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.verifiedDetailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.verifiedDetailLabel {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--text-secondary, #6B7280);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.verifiedDetailValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary, #111827);
+  word-break: break-word;
+}
+
+.verifiedStatusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: #ECFDF5;
+  color: #059669;
+  border: 1px solid #A7F3D0;
+}
+
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modalCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 12px;
+  max-width: 440px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.modalTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 10px 0;
+}
+
+.modalText {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+.modalActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Locked Inputs Cursor & Interaction */
+.formAreaLocked input:disabled,
+.formAreaLocked textarea:disabled,
+.formAreaLocked select:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.formAreaLocked .fieldGroup,
+.formAreaLocked .inputWrapper {
+  cursor: not-allowed;
+}
+
+/* Red Toast Notification for Locked Fields (Full-width bottom bar, matches Settings notification) */
+.lockedNotificationBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  border-radius: 0;
+  padding: 14px 24px;
+  box-shadow: none;
+  z-index: 99999;
+  border: none;
+  outline: none;
+}
+
+.lockedNotificationContent {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.lockedNotificationLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.lockedNotificationIconWrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.lockedNotificationTextGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.lockedNotificationTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.1px;
+}
+
+.lockedNotificationMessage {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+}
+
+.lockedNotificationRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.lockedNotificationBtn {
+  background-color: #FFFFFF;
+  color: #DC2626;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: none;
+  outline: none;
+  transition: background-color 0.15s;
+}
+
+.lockedNotificationBtn:hover {
+  background-color: #FEE2E2;
+}
+
+@keyframes slideUpAndShake {
+  0% { transform: translateY(100%) translateX(0); }
+  15% { transform: translateY(60%) translateX(-12px); }
+  30% { transform: translateY(30%) translateX(12px); }
+  45% { transform: translateY(12%) translateX(-10px); }
+  60% { transform: translateY(3%) translateX(10px); }
+  72% { transform: translateY(0) translateX(-6px); }
+  82% { transform: translateY(0) translateX(6px); }
+  90% { transform: translateY(0) translateX(-3px); }
+  96% { transform: translateY(0) translateX(3px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+@keyframes errorShake {
+  0% { transform: translateX(0); }
+  15% { transform: translateX(-12px); }
+  30% { transform: translateX(12px); }
+  45% { transform: translateX(-10px); }
+  60% { transform: translateX(10px); }
+  75% { transform: translateX(-6px); }
+  85% { transform: translateX(6px); }
+  92% { transform: translateX(-3px); }
+  97% { transform: translateX(3px); }
+  100% { transform: translateX(0); }
+}
+
+.slideUpAndShake {
+  animation-name: slideUpAndShake;
+}
+
+.errorShake {
+  animation-name: errorShake;
+}
+
+@media (max-width: 768px) {
+  .lockedNotificationContent {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 0 12px;
+  }
+  .lockedNotificationBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

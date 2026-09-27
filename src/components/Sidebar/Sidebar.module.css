@@ -1,0 +1,426 @@
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-default);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 24px 16px;
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+  flex-shrink: 0;
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  background-color: var(--brand-dark);
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.collapseBtn {
+  color: var(--text-tertiary);
+}
+
+.collapseBtn:hover {
+  color: var(--text-primary);
+}
+
+.searchContainer {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  display: flex;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 10px 10px 36px;
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.searchInput:focus {
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.nav {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 20px;
+  padding-right: 4px;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default) transparent;
+}
+
+.nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.nav::-webkit-scrollbar-thumb {
+  background-color: var(--border-default);
+  border-radius: 4px;
+}
+
+.nav::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-tertiary);
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navItem:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.navItem.active {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.lockedIcon {
+  margin-left: auto;
+  color: var(--text-tertiary);
+  opacity: 0.65;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.navItem.locked:hover .lockedIcon {
+  color: #EA580C;
+  opacity: 1;
+}
+
+.navItem.kycRequested {
+  background-color: #FEF9C3;
+  color: #111827;
+  border: 1px solid #FACC15;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.navItem.kycRequested svg {
+  color: #D97706;
+}
+
+.navItem.kycRequested:hover {
+  background-color: #FEF08A;
+  color: #111827;
+  border-color: #EAB308;
+  border-radius: 8px;
+}
+
+.navItem.kycRequested.active {
+  background-color: #FEF9C3;
+  color: #111827;
+  border: 1px solid #EAB308;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.navItem.settingsPending {
+  color: #EA580C;
+}
+
+.navItem.settingsPending svg {
+  color: #EA580C;
+}
+
+.navItem.settingsPending:hover {
+  background-color: var(--bg-hover);
+  color: #C2410C;
+}
+
+.navItem.settingsPending:hover svg {
+  color: #C2410C;
+}
+
+.navItem.settingsPending.active {
+  background-color: var(--bg-hover);
+  color: #EA580C;
+}
+
+.kycRequestedBadge {
+  margin-left: auto;
+  padding: 2px 7px;
+  border-radius: 8px;
+  background-color: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FCD34D;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+:global([data-theme="dark"]) .navItem.kycRequested,
+:global(.dark) .navItem.kycRequested {
+  background-color: rgba(245, 158, 11, 0.14);
+  color: #FDE68A;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+:global([data-theme="dark"]) .navItem.kycRequested svg,
+:global(.dark) .navItem.kycRequested svg {
+  color: #FACC15;
+}
+
+:global([data-theme="dark"]) .navItem.kycRequested:hover,
+:global(.dark) .navItem.kycRequested:hover {
+  background-color: rgba(245, 158, 11, 0.2);
+}
+
+:global([data-theme="dark"]) .navItem.kycRequested.active,
+:global(.dark) .navItem.kycRequested.active {
+  background-color: rgba(245, 158, 11, 0.22);
+  color: #FEF08A;
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: none;
+}
+
+:global([data-theme="dark"]) .kycRequestedBadge,
+:global(.dark) .kycRequestedBadge {
+  background-color: rgba(245, 158, 11, 0.25);
+  color: #FDE68A;
+  border: 1px solid rgba(245, 158, 11, 0.45);
+}
+
+:global([data-theme="dark"]) .navItem.settingsPending,
+:global(.dark) .navItem.settingsPending {
+  color: #FB923C;
+}
+
+:global([data-theme="dark"]) .navItem.settingsPending svg,
+:global(.dark) .navItem.settingsPending svg {
+  color: #FB923C;
+}
+
+:global([data-theme="dark"]) .navItem.settingsPending:hover,
+:global(.dark) .navItem.settingsPending:hover {
+  background-color: var(--bg-hover);
+  color: #FDBA74;
+}
+
+:global([data-theme="dark"]) .navItem.settingsPending:hover svg,
+:global(.dark) .navItem.settingsPending:hover svg {
+  color: #FDBA74;
+}
+
+:global([data-theme="dark"]) .navItem.settingsPending.active,
+:global(.dark) .navItem.settingsPending.active {
+  background-color: var(--bg-hover);
+  color: #FB923C;
+}
+
+.blackBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-left: auto;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+:global([data-theme="dark"]) .blackBadge,
+:global(.dark) .blackBadge {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+.devNotice {
+  background-color: #FFF2E8;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 16px 36px 16px 16px;
+  position: relative;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  color: #5C4A42;
+  line-height: 1.5;
+}
+
+.devNotice strong {
+  color: #3D2920;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.devNoticeClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #8C756B;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.devNoticeClose:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #3D2920;
+}
+
+.bottomSection {
+  margin-top: auto;
+  flex-shrink: 0;
+  border-top: 1px solid var(--border-default);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.userProfile:hover {
+  background-color: var(--bg-hover);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #fca5a5;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.userEmail {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.profileBtn {
+  color: var(--text-tertiary);
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.profileBtn:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.themeToggleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.toggle {
+  width: 32px;
+  height: 18px;
+  background-color: var(--border-default);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.toggleCircle {
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+}
