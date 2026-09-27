@@ -17,4 +17,4 @@ Disallow: /kyc-management
 Disallow: /notifications-management
 Disallow: /compose
 
-Sitemap: https://idylltrackpayments.online/sitemap.xml
+Sitemap: https://idylltrackspayments.online/sitemap.xml
