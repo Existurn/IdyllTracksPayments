@@ -18,6 +18,7 @@ const PERMISSIONS_LIST: { id: Permission, label: string }[] = [
   { id: 'kyc-management', label: 'KYC Management' },
   { id: 'notifications', label: 'Notifications' },
   { id: 'compose', label: 'Compose' },
+  { id: 'client', label: 'Client' },
   { id: 'tutorial', label: 'Tutorial' },
   { id: 'support', label: 'Support' },
   { id: 'settings', label: 'Settings' },

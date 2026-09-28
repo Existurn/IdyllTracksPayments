@@ -1,13 +1,88 @@
 .tutorialContainer {
-  padding: 32px;
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 0 0 40px 0;
+  width: 100%;
+  max-width: 100%;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text-primary);
 }
 
+.sectionDivider {
+  height: 1px;
+  background-color: var(--border-default);
+  margin: 36px 0 24px 0;
+  border: none;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sectionBadge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background-color: var(--bg-hover);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+}
+
+.lockedPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #DC2626;
+  background-color: #FEF2F2;
+  border: 1px solid #FECACA;
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+:global([data-theme="dark"]) .lockedPill,
+:global(.dark) .lockedPill {
+  background-color: rgba(220, 38, 38, 0.15);
+  color: #F87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.toggleIconLocked {
+  background-color: var(--bg-hover);
+  color: #94A3B8;
+}
+
+.accordionCard:hover .toggleIconLocked {
+  background-color: #FEE2E2;
+  color: #DC2626;
+}
+
+:global([data-theme="dark"]) .accordionCard:hover .toggleIconLocked,
+:global(.dark) .accordionCard:hover .toggleIconLocked {
+  background-color: rgba(220, 38, 38, 0.2);
+  color: #F87171;
+}
+
 .headerSection {
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .titleRow {
@@ -53,301 +128,471 @@
   max-width: 720px;
 }
 
-/* Video Player Card */
-.videoCard {
+/* Accordion List */
+.accordionList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.accordionCard {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-default);
-  border-radius: 14px;
+  border-radius: 0;
   overflow: hidden;
   box-shadow: none;
-  margin-bottom: 32px;
 }
 
-.videoWrapper {
-  position: relative;
+.accordionCardExpanded {
+  border-color: var(--border-default);
+  box-shadow: none;
+  border-radius: 0;
+}
+
+:global([data-theme="dark"]) .accordionCardExpanded,
+:global(.dark) .accordionCardExpanded {
+  border-color: var(--border-default);
+  box-shadow: none;
+}
+
+.accordionHeader {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  background-color: #000000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.videoElement {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-.videoCardFooter {
-  padding: 18px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid var(--border-default);
-  flex-wrap: wrap;
   gap: 16px;
+  padding: 22px 24px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
 }
 
-.videoMeta {
+.accordionHeader:hover {
+  background-color: var(--bg-hover);
+}
+
+.accordionTitleGroup {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
 }
 
-.videoMetaTitle {
-  font-size: 15px;
+.accordionTitle {
+  font-size: 16px;
   font-weight: 600;
   color: var(--text-primary);
+  margin: 0;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
 }
 
-.videoMetaSubtitle {
+.comingSoonPill {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background-color: var(--bg-hover);
+  border: 1px solid var(--border-default);
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Round Toggle Icon */
+.toggleIconCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toggleIconCollapsed {
+  background-color: #F1F5F9;
+  color: #64748B;
+}
+
+:global([data-theme="dark"]) .toggleIconCollapsed,
+:global(.dark) .toggleIconCollapsed {
+  background-color: #27272A;
+  color: #94A3B8;
+}
+
+.accordionHeader:hover .toggleIconCollapsed {
+  background-color: #E2E8F0;
+  color: #0F172A;
+}
+
+:global([data-theme="dark"]) .accordionHeader:hover .toggleIconCollapsed,
+:global(.dark) .accordionHeader:hover .toggleIconCollapsed {
+  background-color: #3F3F46;
+  color: #F4F4F5;
+}
+
+.toggleIconExpanded {
+  background-color: #EA580C;
+  color: #FFFFFF;
+  box-shadow: none;
+}
+
+/* Accordion Body */
+.accordionBody {
+  padding: 0 24px 28px 24px;
+}
+
+/* Video Wrapper */
+.videoContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 24px;
+}
+
+:global([data-theme="dark"]) .videoContainer,
+:global(.dark) .videoContainer {
+  background-color: var(--bg-surface);
+}
+
+.videoLoadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+:global([data-theme="dark"]) .videoLoadingOverlay,
+:global(.dark) .videoLoadingOverlay {
+  background-color: var(--bg-surface);
+}
+
+.videoSpinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(234, 88, 12, 0.15);
+  border-top-color: #EA580C;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.videoLoadingText {
   font-size: 13px;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
-.videoActions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.actionButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  background-color: var(--bg-hover);
-  color: var(--text-primary);
-  border: 1px solid var(--border-default);
-  cursor: pointer;
-  transition: all 0.15s ease;
+.videoIframe {
+  border: none;
+  border-radius: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
 }
 
-.actionButton:hover {
-  background-color: var(--border-default);
-}
-
-/* Two-column Layout for Chapters & Tips */
-.contentGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.card {
-  background-color: var(--bg-surface);
+/* Written Guide Section */
+.guideSection {
+  background-color: var(--bg-main);
   border: 1px solid var(--border-default);
   border-radius: 12px;
   padding: 24px;
 }
 
-.cardHeader {
+.guideHeader {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 12px;
   margin-bottom: 18px;
-  padding-bottom: 12px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--border-default);
+  flex-wrap: wrap;
 }
 
-.cardTitle {
+.guideTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.welcomeBanner {
+  padding: 12px 16px;
+  background-color: rgba(234, 88, 12, 0.08);
+  border-left: 3px solid #EA580C;
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+/* Step-by-Step List */
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.stepNumber {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #18181B;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+:global([data-theme="dark"]) .stepNumber,
+:global(.dark) .stepNumber {
+  background-color: #FFFFFF;
+  color: #18181B;
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepText {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tipBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 9px 13px;
+  background-color: var(--bg-hover);
+  border-radius: 8px;
+  border: 1px dashed var(--border-default);
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  line-height: 1.45;
+}
+
+.tipIcon {
+  color: #EA580C;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.subStepsList {
+  margin: 10px 0 4px 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subStepItem {
+  font-size: 13.5px;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Simulated Button UI Elements (non-working) */
+.btnPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3.5px 11px;
+  background-color: #18181B;
+  color: #FFFFFF;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  vertical-align: middle;
+  margin: 0 4px;
+  border: 1px solid #27272A;
+  box-shadow: none;
+  user-select: none;
+  cursor: default;
+}
+
+:global([data-theme="dark"]) .btnPill,
+:global(.dark) .btnPill {
+  background-color: #FFFFFF;
+  color: #18181B;
+  border-color: #E4E4E7;
+}
+
+.btnPillOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3.5px 11px;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  vertical-align: middle;
+  margin: 0 4px;
+  border: 1px solid var(--border-default);
+  box-shadow: none;
+  user-select: none;
+  cursor: default;
+}
+
+.btnPill:hover,
+.btnPillOutline:hover {
+  opacity: 0.9;
+}
+
+.closingNote {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-default);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.closingText {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.goToInvoicesBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: #EA580C;
+  color: #FFFFFF;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.goToInvoicesBtn:hover {
+  background-color: #C2410C;
+  transform: translateY(-1px);
+}
+
+/* Coming Soon Placeholder */
+.comingSoonCard {
+  padding: 40px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: var(--bg-main);
+  border-radius: 12px;
+  border: 1px dashed var(--border-default);
+}
+
+.comingSoonIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(234, 88, 12, 0.1);
+  color: #EA580C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.comingSoonTitle {
   font-size: 16px;
   font-weight: 600;
   color: var(--text-primary);
   margin: 0;
 }
 
-.chapterList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.chapterItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 14px;
-  border-radius: 8px;
-  background-color: var(--bg-hover);
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.chapterItem:hover {
-  border-color: #FED7AA;
-  background-color: #FFF7ED;
-}
-
-:global([data-theme="dark"]) .chapterItem:hover,
-:global(.dark) .chapterItem:hover {
-  background-color: rgba(234, 88, 12, 0.15);
-  border-color: rgba(249, 115, 22, 0.35);
-}
-
-.chapterName {
+.comingSoonDesc {
   font-size: 13.5px;
-  font-weight: 500;
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.chapterTimestamp {
-  font-size: 12px;
-  font-weight: 600;
-  color: #EA580C;
-  background-color: #FFEDD5;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-family: monospace;
-}
-
-:global([data-theme="dark"]) .chapterTimestamp,
-:global(.dark) .chapterTimestamp {
-  background-color: rgba(234, 88, 12, 0.25);
-  color: #FED7AA;
-}
-
-/* Tips list */
-.tipsList {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.tipItem {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
-
-.tipIcon {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background-color: rgba(234, 88, 12, 0.1);
-  color: #EA580C;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.tipContentTitle {
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 2px;
-}
-
-.tipContentDesc {
-  font-size: 12.5px;
   color: var(--text-secondary);
-  line-height: 1.45;
+  max-width: 480px;
   margin: 0;
+  line-height: 1.5;
 }
 
-/* Modal for changing CDN URL */
-.modalOverlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-  padding: 16px;
-}
-
-.modalContent {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  border-radius: 12px;
-  width: 100%;
-  max-width: 520px;
-  padding: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.modalHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.modalTitle {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.inputField {
-  width: 100%;
-  padding: 10px 14px;
-  border: 1px solid var(--border-default);
-  border-radius: 8px;
-  font-size: 14px;
-  background-color: var(--bg-surface);
-  color: var(--text-primary);
-  outline: none;
-  margin-bottom: 16px;
-}
-
-.inputField:focus {
-  border-color: #EA580C;
-}
-
-.modalActions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.primaryButton {
-  background-color: #EA580C;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 8px;
-  padding: 9px 18px;
-  font-size: 13.5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-}
-
-.primaryButton:hover {
-  background-color: #C2410C;
-}
-
-.secondaryButton {
-  background-color: var(--bg-hover);
-  color: var(--text-primary);
-  border: 1px solid var(--border-default);
-  border-radius: 8px;
-  padding: 9px 18px;
-  font-size: 13.5px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .tutorialContainer {
     padding: 20px 16px;
   }
-  .contentGrid {
-    grid-template-columns: 1fr;
+
+  .accordionHeader {
+    padding: 16px 18px;
+  }
+
+  .accordionTitle {
+    font-size: 15px;
+  }
+
+  .accordionBody {
+    padding: 0 16px 20px 16px;
+  }
+
+  .guideSection {
+    padding: 16px;
+  }
+
+  .btnPill,
+  .btnPillOutline {
+    margin: 4px 2px;
   }
 }

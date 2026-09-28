@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { LayoutDashboard, FileText, Receipt, Users, CreditCard, BarChart3, Settings, ChevronUp, AppWindow, LogOut, Moon, X, ShieldCheck, FileBadge, UserCheck, Bell, LifeBuoy, PenSquare, Lock, Video } from 'lucide-react';
+import { LayoutDashboard, FileText, Receipt, Users, CreditCard, BarChart3, Settings, ChevronUp, AppWindow, LogOut, Moon, X, ShieldCheck, FileBadge, UserCheck, Bell, LifeBuoy, PenSquare, Lock, Video, Briefcase } from 'lucide-react';
 import { supabase } from '../../lib/supabaseClient';
 import { useRBAC } from '../../contexts/RBACContext';
 import styles from './Sidebar.module.css';
@@ -164,7 +164,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activePage, onPageChange }) => {
 
   const isPageLocked = (pageId: string) => {
     if (!isProfileIncomplete) return false;
-    return !['dashboard', 'settings', 'support', 'tutorial'].includes(pageId);
+    return !['dashboard', 'settings', 'support', 'tutorial', 'client'].includes(pageId);
   };
 
   const handleNavClick = (pageId: string) => {
@@ -194,6 +194,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activePage, onPageChange }) => {
       tutorial: 'tutorial',
       support: 'support',
       settings: 'settings',
+      client: 'client',
     };
 
     const requiredPerm = permMap[pageId];
@@ -356,6 +357,15 @@ const Sidebar: React.FC<SidebarProps> = ({ activePage, onPageChange }) => {
 
       <div className={styles.bottomSection}>
         <ul className={styles.navList}>
+          {hasPermission(activeUserId, 'client') && (
+            <li
+              className={`${styles.navItem} ${activePage === 'client' ? styles.active : ''}`}
+              onClick={() => handleNavClick('client')}
+            >
+              <Briefcase size={18} />
+              <span>Client</span>
+            </li>
+          )}
           {hasPermission(activeUserId, 'tutorial') && (
             <li
               className={`${styles.navItem} ${activePage === 'tutorial' ? styles.active : ''}`}

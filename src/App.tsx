@@ -24,6 +24,7 @@ import NotificationManagementView from './components/Notifications/NotificationM
 import SupportView from './components/Support/SupportView';
 import TutorialView from './components/Tutorial/TutorialView';
 import ComposeView from './components/Compose/ComposeView';
+import ClientView from './components/Client/ClientView';
 import { supabase } from './lib/supabaseClient';
 import type { Session } from '@supabase/supabase-js';
 import { useRBAC } from './contexts/RBACContext';
@@ -43,7 +44,7 @@ function App() {
     if (path === 'invoice-builder' || path === 'idyll-invoicing' || path === 'idyll invoicing') {
       path = 'idyll-invoicing';
     }
-    const validPages = ['dashboard', 'payments', 'payment-details', 'users', 'billing', 'audit', 'admin-panel', 'settings', 'privacy', 'authentication', 'signup', 'login', 'invoice-builder', 'idyll-invoicing', 'idyll invoicing', 'landing', 'profile', 'approval', 'account-verified', 'kyc', 'kyc-management', 'notifications-management', 'support', 'tutorial', 'compose'];
+    const validPages = ['dashboard', 'payments', 'payment-details', 'users', 'billing', 'audit', 'admin-panel', 'settings', 'privacy', 'authentication', 'signup', 'login', 'invoice-builder', 'idyll-invoicing', 'idyll invoicing', 'landing', 'profile', 'approval', 'account-verified', 'kyc', 'kyc-management', 'notifications-management', 'support', 'tutorial', 'compose', 'client'];
     // Default any auth, approval, landing, or empty entry paths to 'dashboard'
     if (['', 'approval', 'login', 'signup', 'landing', 'authentication'].includes(path)) {
       return 'dashboard';
@@ -98,7 +99,7 @@ function App() {
   }, [shakeTrigger]);
 
   const isPageLocked = (page: string) => {
-    return !['dashboard', 'settings', 'support', 'tutorial', 'privacy', 'login', 'signup', 'landing', 'approval', 'account-verified', 'authentication', 'account-deleted'].includes(page);
+    return !['dashboard', 'settings', 'support', 'tutorial', 'client', 'privacy', 'login', 'signup', 'landing', 'approval', 'account-verified', 'authentication', 'account-deleted'].includes(page);
   };
 
   const isProfileComplete = (user: any): boolean => {
@@ -395,6 +396,7 @@ function App() {
     if (page === 'support') return hasPermission(session.user.id, 'support');
     if (page === 'tutorial') return hasPermission(session.user.id, 'tutorial');
     if (page === 'compose') return hasPermission(session.user.id, 'compose');
+    if (page === 'client') return hasPermission(session.user.id, 'client');
     if (page === 'kyc-management') return hasPermission(session.user.id, 'kyc-management');
     if (page === 'notifications-management') return hasPermission(session.user.id, 'notifications');
     if (page === 'payments') return hasPermission(session.user.id, 'payments');
@@ -421,6 +423,7 @@ function App() {
       { page: 'kyc-management', perm: 'kyc-management' },
       { page: 'notifications-management', perm: 'notifications' },
       { page: 'compose', perm: 'compose' },
+      { page: 'client', perm: 'client' },
       { page: 'tutorial', perm: 'tutorial' },
       { page: 'support', perm: 'support' },
       { page: 'settings', perm: 'settings' },
@@ -1040,6 +1043,7 @@ function App() {
             {activePage === 'support' && <SupportView />}
             {activePage === 'tutorial' && <TutorialView onNavigate={handlePageChange} />}
             {activePage === 'compose' && <ComposeView />}
+            {activePage === 'client' && <ClientView />}
           </>
         )}
       </AppLayout>

@@ -632,7 +632,11 @@ const Dashboard: React.FC<DashboardProps> = ({ onPageChange }) => {
       {/* Welcome Tour Modal */}
       <WelcomeTourModal 
         isOpen={showWelcomeTour} 
-        onClose={() => setShowWelcomeTour(false)} 
+        onClose={() => setShowWelcomeTour(false)}
+        onNavigate={(page) => {
+          window.history.pushState(null, '', `/${page}`);
+          window.dispatchEvent(new PopStateEvent('popstate'));
+        }} 
       />
     </div>
   );

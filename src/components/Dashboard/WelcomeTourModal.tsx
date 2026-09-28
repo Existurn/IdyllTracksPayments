@@ -28,7 +28,7 @@ import { COUNTRIES, type Country } from '../../utils/countries';
 import confetti from 'canvas-confetti';
 import styles from './WelcomeTourModal.module.css';
 
-const BUNNY_CDN_EMBED_URL = 'https://player.mediadelivery.net/play/644758/71b0d8a0-c6ea-46ee-944b-f3b5382f1ec7';
+const BUNNY_CDN_EMBED_URL = 'https://player.mediadelivery.net/embed/644758/5c7c3d7f-3788-4021-992e-0c5b8507c909?autoplay=true&muted=true&controls=false&loop=true&preload=true';
 
 const AVAILABLE_AVATARS = [
   { id: '1', name: 'Profile 1', url: '/profile-pics/profile-pic-1.jpg' },
@@ -149,9 +149,10 @@ const triggerConfettiBlast = () => {
 interface WelcomeTourModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onNavigate?: (page: string) => void;
 }
 
-const WelcomeTourModal: React.FC<WelcomeTourModalProps> = ({ isOpen, onClose }) => {
+const WelcomeTourModal: React.FC<WelcomeTourModalProps> = ({ isOpen, onClose, onNavigate }) => {
   const { updateProfile, addUser } = useRBAC();
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [slideDirection, setSlideDirection] = useState<'forward' | 'backward'>('forward');
@@ -390,7 +391,7 @@ const WelcomeTourModal: React.FC<WelcomeTourModalProps> = ({ isOpen, onClose }) 
     goToStep(4);
   };
 
-  const handleFinish = async () => {
+  const handleFinish = async (redirectToTutorial: boolean = false) => {
     if (!displayName.trim()) {
       window.dispatchEvent(new CustomEvent('show-toast', { detail: 'Display Name is required' }));
       return;
@@ -501,6 +502,14 @@ const WelcomeTourModal: React.FC<WelcomeTourModalProps> = ({ isOpen, onClose }) 
       const delayRemaining = Math.max(0, 800 - elapsed);
       setTimeout(() => {
         onClose();
+        if (redirectToTutorial) {
+          if (onNavigate) {
+            onNavigate('tutorial');
+          } else {
+            window.history.pushState(null, '', '/tutorial');
+            window.dispatchEvent(new PopStateEvent('popstate'));
+          }
+        }
       }, delayRemaining);
     } catch (err: any) {
       console.error('Failed to complete onboarding:', err);
@@ -983,10 +992,13 @@ const WelcomeTourModal: React.FC<WelcomeTourModalProps> = ({ isOpen, onClose }) 
                   >
                     <div className={styles.countryTriggerLeft}>
                       <span className={styles.countryFlag}>{selectedCountry.flag}</span>
-                      <span>{selectedCountry.name}</span>
-                      <span className={styles.countryDialCode}>({selectedCountry.dialCode})</span>
+                      <span className={styles.countryName}>{selectedCountry.name}</span>
                     </div>
-                    <ChevronDown size={14} color="#6B7280" />
+                    <ChevronDown 
+                      size={14} 
+                      color="#6B7280" 
+                      className={`${styles.countryChevron} ${isCountryOpen ? styles.countryChevronOpen : ''}`} 
+                    />
                   </div>
 
                   {isCountryOpen && (
@@ -998,7 +1010,7 @@ const WelcomeTourModal: React.FC<WelcomeTourModalProps> = ({ isOpen, onClose }) 
                           type="text"
                           value={countrySearch}
                           onChange={(e) => setCountrySearch(e.target.value)}
-                          placeholder="Search country or code..."
+                          placeholder="Search country..."
                           className={styles.countrySearchInput}
                           autoFocus
                           onClick={(e) => e.stopPropagation()}
@@ -1022,8 +1034,7 @@ const WelcomeTourModal: React.FC<WelcomeTourModalProps> = ({ isOpen, onClose }) 
                               >
                                 <div className={styles.countryOptionLeft}>
                                   <span className={styles.countryFlag}>{country.flag}</span>
-                                  <span>{country.name}</span>
-                                  <span className={styles.countryDialCode}>{country.dialCode}</span>
+                                  <span className={styles.countryName}>{country.name}</span>
                                 </div>
                                 {isSelected && (
                                   <Check size={14} color="var(--text-primary, #111827)" />
@@ -1134,21 +1145,32 @@ const WelcomeTourModal: React.FC<WelcomeTourModalProps> = ({ isOpen, onClose }) 
             )}
 
             {step === 4 && (
-              <button 
-                type="button" 
-                className={styles.primaryBtn}
-                onClick={handleFinish}
-                disabled={saving}
-              >
-                {saving ? (
-                  <span>Saving...</span>
-                ) : (
-                  <>
-                    <CheckCircle2 size={15} />
-                    <span>Complete Setup</span>
-                  </>
-                )}
-              </button>
+              <>
+                <button 
+                  type="button" 
+                  className={styles.skipToDashboardBtn}
+                  onClick={() => handleFinish(false)}
+                  disabled={saving}
+                >
+                  {saving ? <span>Finishing...</span> : <span>Skip to Dashboard</span>}
+                </button>
+
+                <button 
+                  type="button" 
+                  className={styles.primaryBtn}
+                  onClick={() => handleFinish(true)}
+                  disabled={saving}
+                >
+                  {saving ? (
+                    <span>Saving...</span>
+                  ) : (
+                    <>
+                      <span>Go to Tutorial Page</span>
+                      <ArrowRight size={14} />
+                    </>
+                  )}
+                </button>
+              </>
             )}
           </div>
         </div>

@@ -18,6 +18,7 @@ export type Permission =
   | 'tutorial' 
   | 'support' 
   | 'settings' 
+  | 'client'
   | 'create-invoices';
 
 export interface TimePeriod {
@@ -56,6 +57,7 @@ export const DEFAULT_ROLES: Record<Role, Record<Permission, boolean>> = {
     tutorial: true,
     support: true,
     settings: true,
+    client: true,
     'create-invoices': true,
   },
   CFO: {
@@ -73,6 +75,7 @@ export const DEFAULT_ROLES: Record<Role, Record<Permission, boolean>> = {
     tutorial: true,
     support: true,
     settings: true,
+    client: true,
     'create-invoices': false,
   },
   Manager: {
@@ -90,6 +93,7 @@ export const DEFAULT_ROLES: Record<Role, Record<Permission, boolean>> = {
     tutorial: true,
     support: true,
     settings: true,
+    client: true,
     'create-invoices': true,
   },
   Editor: {
@@ -107,6 +111,7 @@ export const DEFAULT_ROLES: Record<Role, Record<Permission, boolean>> = {
     tutorial: true,
     support: true,
     settings: true,
+    client: true,
     'create-invoices': true,
   },
   Client: {
@@ -124,6 +129,7 @@ export const DEFAULT_ROLES: Record<Role, Record<Permission, boolean>> = {
     tutorial: true,
     support: true,
     settings: true,
+    client: true,
     'create-invoices': false,
   },
 };
